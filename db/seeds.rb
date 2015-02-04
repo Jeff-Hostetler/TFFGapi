@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Vendor.delete_all
+
+
+3.times do
+  Vendor.create!(
+    name: Faker::Name.name ,
+    address: Faker::Address.street_address,
+  )
+end
