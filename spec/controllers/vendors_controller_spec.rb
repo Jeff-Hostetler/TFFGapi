@@ -34,7 +34,7 @@ describe VendorsController do
 
   describe "#create" do
     it "allows client to create a new vendor in db" do
-      post :create, vendor: {name: "Test", location: "test location"}
+      post :create, vendor: {name: "Test", address: "test location"}
 
       expect(Vendor.count).to eq(1)
     end
