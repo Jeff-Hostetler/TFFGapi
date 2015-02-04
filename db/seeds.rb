@@ -8,10 +8,15 @@
 
 
 Vendor.delete_all
+Distributor.delete_all
 
 
 3.times do
   Vendor.create!(
+    name: Faker::Name.name ,
+    address: Faker::Address.street_address,
+  )
+  Distributor.create!(
     name: Faker::Name.name ,
     address: Faker::Address.street_address,
   )

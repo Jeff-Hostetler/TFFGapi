@@ -1,5 +1,5 @@
-class Vendor < ActiveRecord::Base
-  
+class Distributor < ActiveRecord::Base
+
   validates :name, presence: true
   validates :address, presence: true
 end
