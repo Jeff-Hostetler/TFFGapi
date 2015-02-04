@@ -9,15 +9,22 @@
 
 Vendor.delete_all
 Distributor.delete_all
+Employee.delete_all
 
 
 3.times do
   Vendor.create!(
-    name: Faker::Name.name ,
+    name: Faker::Company.name ,
     address: Faker::Address.street_address,
   )
   Distributor.create!(
-    name: Faker::Name.name ,
+    name: Faker::Company.name ,
     address: Faker::Address.street_address,
+  )
+  Employee.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name ,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.phone_number,
   )
 end

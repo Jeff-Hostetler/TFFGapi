@@ -34,6 +34,8 @@ describe DistributorsController do
 
   describe "#create" do
     it "allows client to create a new distributor in db" do
+      expect(Distributor.count).to eq(0)
+
       post :create, distributor: {name: "Test", address: "test location"}
 
       expect(Distributor.count).to eq(1)
