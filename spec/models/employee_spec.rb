@@ -11,4 +11,10 @@ RSpec.describe Employee, :type => :model do
 
     expect(emp.valid?).to eq(false)
   end
+
+  it "has many shifts" do
+    emp = create_employee
+    shift1 = create_shift(emp, 5)
+    shift2 = 
+  end
 end

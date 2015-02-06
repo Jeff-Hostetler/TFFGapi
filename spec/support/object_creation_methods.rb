@@ -20,3 +20,19 @@ def create_employee
     phone_number: Faker::PhoneNumber.phone_number,
   )
 end
+
+def create_shift(employee, length)
+  Shift.create(
+  employee_id: employee.id,
+  start_time: Time.now,
+  end_time: (Time.now + length.hours),
+  )
+end
+
+def create_another_shift(emp, length)
+  Shift.create(
+  employee_id: employee.id,
+  start_time: (Time.now+1.day),
+  end_time: ((Time.now+1.day)+length.hours),
+  )
+end
