@@ -37,6 +37,8 @@ group :development, :test do
   gem 'pry'
 end
 gem 'faker'
+
+gem 'rack-cors', :require => 'rack/cors'
 # Use unicorn as the app server
 # gem 'unicorn'
 

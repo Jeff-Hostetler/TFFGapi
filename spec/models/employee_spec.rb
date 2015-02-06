@@ -14,7 +14,11 @@ RSpec.describe Employee, :type => :model do
 
   it "has many shifts" do
     emp = create_employee
-    shift1 = create_shift(emp, 5)
-    shift2 = 
+
+binding.pry
+    emp.shifts.create()
+    emp.shifts.create()
+
+    expect(emp.shifts.count).to eq(2)
   end
 end

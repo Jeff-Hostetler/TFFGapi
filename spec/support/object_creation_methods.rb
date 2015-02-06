@@ -29,7 +29,7 @@ def create_shift(employee, length)
   )
 end
 
-def create_another_shift(emp, length)
+def create_another_shift(employee, length)
   Shift.create(
   employee_id: employee.id,
   start_time: (Time.now+1.day),
