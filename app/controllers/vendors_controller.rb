@@ -12,14 +12,21 @@ class VendorsController < ApplicationController
 
   def create
     @vendor = Vendor.new(params.require(:vendor).permit(:name, :address))
-    @vendor.save
-    render json: @vendor
+    if @vendor.save
+      render json: @vendor
+    else
+      render json: {errors: @vendor.errors}, status: 422
+    end
   end
 
   def update
     @vendor = Vendor.find(params[:id])
     @vendor.update(params.require(:vendor).permit(:name, :address))
-    render json: @vendor
+    if @vendor.save
+      render json: @vendor
+    else
+      render json: {errors:@vendor.errors}, status: 422
+    end
   end
 
   def destroy
