@@ -10,6 +10,7 @@
 Vendor.delete_all
 Distributor.delete_all
 Employee.delete_all
+Shift.delete_all
 
 
 3.times do
@@ -21,10 +22,20 @@ Employee.delete_all
     name: Faker::Company.name ,
     address: Faker::Address.street_address,
   )
-  Employee.create!(
+  emp = Employee.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name ,
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.phone_number,
+  )
+  Shift.create!(
+  start_time: Time.now,
+  end_time: Time.now + rand(8).hours,
+  employee: emp,
+  )
+  Shift.create(
+  start_time: Time.now + 1.day,
+  end_time: Time.now + 1.day + rand(8).hours,
+  employee: emp,
   )
 end

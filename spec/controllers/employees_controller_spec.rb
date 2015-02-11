@@ -24,7 +24,7 @@ RSpec.describe EmployeesController, :type => :controller do
       get :show, id: emp1
 
       expect(response.status).to eq(200)
-      response_hash = JSON.parse(response.body)
+      response_hash = JSON.parse(response.body)["employee"]
       expect(response_hash["first_name"]).to eq(emp1.first_name)
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe EmployeesController, :type => :controller do
 
       patch :update, id: emp, employee: {first_name: "Updated name"}
 
-      expect(JSON.parse(response.body)["first_name"]).to eq("Updated name")
+      expect(JSON.parse(response.body)["employee"]["first_name"]).to eq("Updated name")
     end
   end
 

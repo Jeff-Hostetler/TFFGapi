@@ -9,10 +9,23 @@ RSpec.describe ShiftsController, :type => :controller do
       shift2 = create_another_shift(emp, 4)
 
       get :index
+
       expect(response.status).to eq(200)
       response_array = JSON.parse(response.body)["shifts"]
       expect(response_array.count).to eq(2)
       expect(response_array[0]["employee_id"]).to eq(emp.id)
+    end
+  end
+  describe "#show" do
+    it "returns JSON of all shifts" do
+      emp = create_employee
+      shift = create_shift(emp, 4)
+
+      get :show, id: shift
+
+      expect(response.status).to eq(200)
+      response_hash = JSON.parse(response.body)["shift"]
+      expect(response_hash["employee_id"]).to eq(emp.id)
     end
   end
 
