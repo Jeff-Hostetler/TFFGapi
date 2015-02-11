@@ -10,7 +10,7 @@ describe DistributorsController do
       get :index
 
       expect(response.status).to eq(200)
-      response_array = JSON.parse(response.body)
+      response_array = JSON.parse(response.body)["distributors"]
       expect(response_array[0]["name"]).to eq(distributor1.name)
       expect(response_array[0]["address"]).to eq(distributor1.address)
       expect(response_array[1]["name"]).to eq(distributor2.name)
@@ -25,7 +25,7 @@ describe DistributorsController do
       get :show, id: distributor
 
       expect(response.status).to eq(200)
-      response_hash = JSON.parse(response.body)
+      response_hash = JSON.parse(response.body)["distributor"]
       expect(response_hash.class == Hash).to eq(true)
       expect(response_hash["name"]).to eq(distributor.name)
       expect(response_hash["address"]).to eq(distributor.address)
@@ -49,7 +49,7 @@ describe DistributorsController do
       patch :update, id: distributor, distributor: {name: "Updated name", address: "Updated location"}
 
       expect(Distributor.count).to eq(1)
-      response_hash = JSON.parse(response.body)
+      response_hash = JSON.parse(response.body)["distributor"]
       expect(response_hash["name"]).to eq("Updated name")
       expect(response_hash["address"]).to eq("Updated location")
     end

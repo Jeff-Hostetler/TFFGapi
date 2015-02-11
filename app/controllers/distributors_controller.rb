@@ -12,14 +12,16 @@ class DistributorsController < ApplicationController
 
   def create
     @distributor = Distributor.new(params.require(:distributor).permit(:name, :address))
-    @distributor.save
-    render json: @distributor
+    if @distributor.save
+      render json: @distributor
+    end
   end
 
   def update
     @distributor = Distributor.find(params[:id])
-    @distributor.update(params.require(:distributor).permit(:name, :address))
-    render json: @distributor
+    if @distributor.update(params.require(:distributor).permit(:name, :address))
+      render json: @distributor
+    end
   end
 
   def destroy

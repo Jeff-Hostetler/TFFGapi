@@ -10,7 +10,7 @@ RSpec.describe EmployeesController, :type => :controller do
       get :index
 
       expect(response.status).to eq(200)
-      response_array = JSON.parse(response.body)
+      response_array = JSON.parse(response.body)["employees"]
       expect(response_array.count).to eq(2)
       expect(response_array[0]["first_name"]).to eq(emp1.first_name)
     end

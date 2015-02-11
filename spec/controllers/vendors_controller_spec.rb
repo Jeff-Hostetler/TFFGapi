@@ -10,7 +10,7 @@ describe VendorsController do
       get :index
 
       expect(response.status).to eq(200)
-      response_array = JSON.parse(response.body)
+      response_array = JSON.parse(response.body)["vendors"]
       expect(response_array[0]["name"]).to eq(vendor1.name)
       expect(response_array[0]["address"]).to eq(vendor1.address)
       expect(response_array[1]["name"]).to eq(vendor2.name)
