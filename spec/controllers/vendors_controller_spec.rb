@@ -25,7 +25,7 @@ describe VendorsController do
       get :show, id: vendor
 
       expect(response.status).to eq(200)
-      response_hash = JSON.parse(response.body)
+      response_hash = JSON.parse(response.body)["vendor"]
       expect(response_hash.class == Hash).to eq(true)
       expect(response_hash["name"]).to eq(vendor.name)
       expect(response_hash["address"]).to eq(vendor.address)
@@ -47,7 +47,7 @@ describe VendorsController do
       patch :update, id: vendor, vendor: {name: "Updated name", address: "Updated location"}
 
       expect(Vendor.count).to eq(1)
-      response_hash = JSON.parse(response.body)
+      response_hash = JSON.parse(response.body)["vendor"]
       expect(response_hash["name"]).to eq("Updated name")
       expect(response_hash["address"]).to eq("Updated location")
     end
