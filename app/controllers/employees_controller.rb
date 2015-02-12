@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
 
   def index
-    render json: Employee.all
+    render json: Employee.all, except: [:shifts]
   end
 
   def show
