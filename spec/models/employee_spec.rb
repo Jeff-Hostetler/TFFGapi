@@ -12,6 +12,12 @@ RSpec.describe Employee, :type => :model do
     expect(emp.valid?).to eq(false)
   end
 
+  it "validates presence of position" do
+    emp = Employee.create(first_name: "Jeff", last_name: "Hos")
+
+    expect(emp.valid?).to eq(false)
+  end
+
   it "has many shifts" do
     emp = create_employee
 

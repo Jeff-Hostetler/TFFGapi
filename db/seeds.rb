@@ -27,6 +27,7 @@ Shift.delete_all
     last_name: Faker::Name.last_name ,
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.phone_number,
+    position: Faker::Name.title,
   )
   Shift.create!(
   start_time: Time.now,

@@ -18,6 +18,7 @@ def create_employee
     last_name: Faker::Name.last_name,
     email: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number,
+    position: Faker::Name.title,
   )
 end
 

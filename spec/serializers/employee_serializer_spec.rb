@@ -7,6 +7,7 @@ describe EmployeeSerializer do
       last_name: "Smith",
       email: "Smith@exmple.com",
       phone_number: "123-456-7890",
+      position: "Janitor",
     )
   end
 
@@ -16,4 +17,5 @@ describe EmployeeSerializer do
   it { is_expected.to include(last_name: "Smith") }
   it { is_expected.to include(email: "Smith@exmple.com") }
   it { is_expected.to include(phone_number: "123-456-7890") }
+  it { is_expected.to include(position: "Janitor") }
 end

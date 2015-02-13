@@ -9,14 +9,14 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(params.require(:employee).permit(:first_name, :last_name, :email, :phone_number))
+    @employee = Employee.new(params.require(:employee).permit(:first_name, :last_name, :email, :phone_number, :position))
     @employee.save
     render json: @employee
   end
 
   def update
     @employee = Employee.find(params[:id])
-    @employee.update(params.require(:employee).permit(:first_name, :last_name, :email, :phone_number))
+    @employee.update(params.require(:employee).permit(:first_name, :last_name, :email, :phone_number, :position))
     render json: @employee
   end
 

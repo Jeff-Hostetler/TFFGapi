@@ -33,7 +33,7 @@ RSpec.describe EmployeesController, :type => :controller do
     it "allows client to post new employee" do
       expect(Employee.count).to eq(0)
 
-      post :create, employee: {first_name: "J", last_name: "Hos", email: "example@example.com"}
+      post :create, employee: {first_name: "J", last_name: "Hos", email: "example@example.com", position: "Janitor"}
 
       expect(Employee.count).to eq(1)
     end
